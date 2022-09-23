@@ -1,0 +1,62 @@
+body {
+    background-color: #333;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#main_frame {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+}
+
+#user_frame {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    width: fit-content;
+    background-color: blueviolet;
+    margin: 10px;
+    padding: 20px;
+    border: 2px solid white;
+    border-radius: 4px;
+    transition: 200ms ease-in-out;
+}
+
+
+#user_location {
+    font-size: 14px;
+}
+
+#user_photo {
+    width: 128px;
+    border: 4px solid white;
+    border-radius: 50%;
+    margin: 8px;
+}
+
+#user_identity {
+    font-size: 32px;
+}
+
+
+#subpanel {
+    border-radius: 4px;
+    width: 70px;
+    height: 20px;
+    background-color: blueviolet;
+    border: 2px solid white;
+    overflow: hidden;
+    transition: 250ms ease-in-out;
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    gap: 20px;
+}
+
+#subpanel_details_btn::before {
+    content: "\f105";
+}
