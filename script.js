@@ -9,10 +9,10 @@ async function api_test() {
   const data = await rep.json();
 
   api_result.push(data.results[0]);
-  console.table(api_result);
   display_data();
 
 }
+
 
 function display_data() {
 
@@ -33,15 +33,6 @@ function display_data() {
 
   document.getElementById("main_frame").style.opacity = 1;
 
-
-
 }
 
 api_test();
-
-
-function develop() {
-  console.log("develop")
-  document.getElementById("subpanel").style.height = "fit-content";
-  document.getElementById("subpanel").style.width = "fit-content";
-}
