@@ -36,3 +36,97 @@ function display_data() {
 }
 
 api_test();
+
+
+
+
+
+
+
+
+class Note {
+
+  constructor (number, content, importance, deadline, status) {
+
+      this.number = number;
+
+      this.content = content;
+
+      this.importance = importance;
+
+      this.deadline = deadline;
+
+      this.status = status;
+
+  }
+
+}
+
+
+
+let notes = [];
+
+
+
+function create_note () {
+
+  let n = new Note(
+
+      notes.length+1,
+
+      document.querySelector("#note_entry").value,
+
+      document.getElementById("note_importance").value,
+
+      document.getElementById("note_deadline").value,
+
+      "Unfinished" // different possible status to define
+
+      )
+
+  notes.push(n);
+
+  console.table(notes);
+
+  display_notes();
+
+}
+
+function display_notes() {
+
+  document.getElementById("notes_panel").innerHTML = "";
+
+  for (let n in notes) {
+
+    let div = document.createElement('div');
+    div.className = "note";
+    div.id = "note" + n;
+    document.getElementById("notes_panel").appendChild(div);
+
+    let div_content = document.createElement('div');
+    div_content.innerText = notes[n].content;
+    div_content.className = "note_content";
+    document.getElementsByClassName("note")[n].appendChild(div_content);
+
+    let div_info = document.createElement('div');
+    div_info.innerText = notes[n].importance + "  " + notes[n].deadline;
+    div_info.className = "note_info";
+    document.getElementsByClassName("note")[n].appendChild(div_info);
+
+
+    // document.getElementsByClassName('note_content')[n].innerText = notes[n].content;
+
+    document.getElementsByClassName('note_info')[n].innerText = notes[n].importance + "  " + notes[n].deadline;
+
+    for (let o in document.getElementsByClassName('note')) {
+
+      let col = "rgb(" + notes[n].importance + ", 30, 30)";
+
+
+      document.getElementsByClassName('note')[n].style.backgroundColor = col;
+      document.getElementsByClassName('note')[n].style.opacity = 1;
+      
+    }
+  
+  }
+}

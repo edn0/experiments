@@ -70,8 +70,61 @@ body {
     align-items: center;
     gap: 20px;
     transition: height 250ms ease-in-out;
+
+    margin-bottom: 100px;
 }
 
 #subpanel:hover {
     height: 60px;
+}
+
+
+
+#submit_btn {
+    height: 20px;
+    width: 60px;
+    background: whitesmoke;
+    border-radius: 10px;
+    margin: 10px;
+    border: 14px groove white;
+}
+
+
+
+
+/************ Notes ***********/
+
+#notes_panel {
+    width: 85%;
+    height: fit-content;
+    background: rgba(245, 245, 245, 0.733);
+    border-radius: 14px;
+    margin: 10px;
+    padding: 10px;
+    
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.note {
+    height: fit-content;
+    width: fit-content;
+    padding: 4px;
+    border-radius: 10px;
+    border: 2px solid rgba(255, 255, 255, 0.384);
+    margin: 8px;
+    background-color: #333;
+    color: white;
+    opacity: 0;
+}
+
+#note_entry {
+    height: fit-content;
+    width: fit-content;
+}
+
+.note_info {
+    font-size: 8px;
 }
