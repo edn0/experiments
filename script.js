@@ -101,6 +101,7 @@ function display_notes() {
     let div = document.createElement('div');
     div.className = "note";
     div.id = "note" + n;
+    div.onclick = console.log('clicked');
     document.getElementById("notes_panel").appendChild(div);
 
     let div_content = document.createElement('div');
@@ -129,4 +130,10 @@ function display_notes() {
     }
   
   }
+  localStorage.setItem("notes", notes);
+  localStorage.notes = JSON.stringify(notes), 1;
+  let newdata = JSON.parse(localStorage.notes);
+  console.table(newdata);
+
+
 }
