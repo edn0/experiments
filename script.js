@@ -64,8 +64,9 @@ class Note {
 
 
 
-let notes = [];
 
+let newdata = JSON.parse(localStorage.notes);
+let notes = newdata;  
 
 
 function create_note () {
@@ -132,8 +133,12 @@ function display_notes() {
   }
   localStorage.setItem("notes", notes);
   localStorage.notes = JSON.stringify(notes), 1;
-  let newdata = JSON.parse(localStorage.notes);
+  
   console.table(newdata);
 
 
+
+
 }
+
+display_notes();
