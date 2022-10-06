@@ -89,8 +89,9 @@ body {
     border: 14px groove white;
 }
 
-
-
+#submit_btn:hover {
+    border: 14px inset white;
+}
 
 /************ Notes ***********/
 
@@ -106,25 +107,35 @@ body {
     flex-flow: row wrap;
     justify-content: flex-start;
     align-items: center;
+    gap: 12px;
 }
 
 .note {
     height: fit-content;
     width: fit-content;
-    padding: 4px;
+    padding: 8px;
     border-radius: 10px;
     border: 2px solid rgba(255, 255, 255, 0.384);
-    margin: 8px;
     background-color: #333;
     color: white;
     opacity: 0;
 }
 
+.note:hover {
+    animation: boing 250ms ease-in forwards;
+}
+
 #note_entry {
-    height: fit-content;
-    width: fit-content;
+    height: 2rem;
+    width: 45%;
+    text-align: center;
 }
 
 .note_info {
     font-size: 8px;
+}
+
+@keyframes boing {
+    25% { transform: scale(1.4);}
+    100% { transform: scale(1.2);}
 }
