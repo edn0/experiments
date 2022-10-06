@@ -69,6 +69,10 @@ let newdata = JSON.parse(localStorage.notes);
 let notes = newdata;  
 
 
+if (localStorage.notes == false) {
+  localStorage.setItem("notes", notes);
+}
+
 function create_note () {
 
   let n = new Note(
@@ -97,12 +101,15 @@ function display_notes() {
 
   document.getElementById("notes_panel").innerHTML = "";
 
+
   for (let n in notes) {
+
+
 
     let div = document.createElement('div');
     div.className = "note";
     div.id = "note" + n;
-    div.onclick = console.log('clicked');
+    div.onclick = function () { notes[n].status = "Finished"; display_notes(); };
     document.getElementById("notes_panel").appendChild(div);
 
     let div_content = document.createElement('div');
@@ -116,21 +123,35 @@ function display_notes() {
     document.getElementsByClassName("note")[n].appendChild(div_info);
 
 
+
     // document.getElementsByClassName('note_content')[n].innerText = notes[n].content;
 
     document.getElementsByClassName('note_info')[n].innerText = notes[n].importance + "  " + notes[n].deadline;
 
-    for (let o in document.getElementsByClassName('note')) {
 
-      let col = "rgb(" + notes[n].importance + ", 30, 30)";
+
+    
+    for (let o in document.getElementsByClassName('note')) { // Defines color
+
+      let col = "rgb(" + notes[n].importance*2 + ", " + notes[n].importance + ", " + notes[n].importance;
 
 
       document.getElementsByClassName('note')[n].style.backgroundColor = col;
       document.getElementsByClassName('note')[n].style.opacity = 1;
       
     }
+
+  
+        
+    if (notes[n].status == "Finished") {
+      console.log(n + "_ done");
+      document.getElementsByClassName("note")[n].style.backgroundColor = "green";
+    }
   
   }
+
+
+
   localStorage.setItem("notes", notes);
   localStorage.notes = JSON.stringify(notes), 1;
   
