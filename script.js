@@ -129,7 +129,7 @@ function display_notes() {
 
     
     let div_exit = document.createElement('div');
-    div_exit.onclick = function () { notes.pop(n); display_notes(); }
+    div_exit.onclick = function () { notes.splice(n, 1); display_notes(); }
     div_exit.innerHTML = "❌";
     div_exit.className = "note_exit";
     document.getElementById("note" + n).appendChild(div_exit);
