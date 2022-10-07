@@ -81,16 +81,24 @@ body {
 
 
 #submit_btn {
-    height: 20px;
-    width: 60px;
-    background: whitesmoke;
-    border-radius: 10px;
+    height: 32px;
+    width: 64px;
+    background: rgba(245, 245, 245, 0.8);
+    border-radius: 14px;
     margin: 10px;
-    border: 14px groove white;
+    color: blueviolet;
+    text-align: center;
+    font-size: 18px;
+    line-height: 1.8;
+    font-weight: 500;
+    margin: 10px;
+    border: 2px solid blueviolet;
 }
 
 #submit_btn:hover {
-    border: 14px inset white;
+    animation: boing 400ms ease-in-out forwards;
+    border: 4px solid blueviolet;
+    margin: 8px;
 }
 
 /************ Notes ***********/
@@ -98,16 +106,16 @@ body {
 #notes_panel {
     width: 85%;
     height: fit-content;
-    background: rgba(245, 245, 245, 0.733);
+    background: rgba(245, 245, 245, 0.8);
     border-radius: 14px;
     margin: 10px;
-    padding: 10px;
+    padding: 32px;
     
     display: flex;
     flex-flow: row wrap;
     justify-content: flex-start;
     align-items: center;
-    gap: 12px;
+    gap: 16px;
 }
 
 .note {
@@ -123,6 +131,31 @@ body {
 
 .note:hover {
     animation: boing 250ms ease-in forwards;
+}
+
+.note_exit {
+    width: 0;
+    height: 0;
+    opacity: 0;
+
+    cursor: pointer;
+    transition: 250ms ease-in-out;
+}
+.note:hover 
+.note_exit:hover {
+    width: 12px;
+    height: 12px;
+    font-size: 8px;
+    padding: 2px;
+    opacity: 1;
+    color : red;
+    font-weight:bold;
+    background-color: rgba(245, 245, 245, 0.75);
+    border-radius: 50%;
+}
+
+.note_exit:active {
+    transform: scale(1.2);
 }
 
 #note_entry {

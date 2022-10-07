@@ -1,5 +1,20 @@
 let api_result = [];
 
+
+
+
+
+
+let now = new Date();
+let hour = now.getHours();
+let minutes = now.getMinutes();
+let seconds = now.getSeconds();
+
+let time = hour + ":" + minutes + ":" + seconds;
+console.log(time);
+
+
+
 async function api_test() {
 
   let req_url = "https://randomuser.me/api/"
@@ -70,7 +85,7 @@ let notes = newdata;
 
 
 if (localStorage.notes == false) {
-  localStorage.setItem("notes", notes);
+  localStorage.setItem("notes", []);
 }
 
 function create_note () {
@@ -112,6 +127,13 @@ function display_notes() {
     div.onclick = function () { notes[n].status = "Finished"; display_notes(); };
     document.getElementById("notes_panel").appendChild(div);
 
+    
+    let div_exit = document.createElement('div');
+    div_exit.onclick = function () { notes.pop(n); display_notes(); }
+    div_exit.innerHTML = "❌";
+    div_exit.className = "note_exit";
+    document.getElementById("note" + n).appendChild(div_exit);
+
     let div_content = document.createElement('div');
     div_content.innerText = notes[n].content;
     div_content.className = "note_content";
@@ -121,7 +143,6 @@ function display_notes() {
     div_info.innerText = notes[n].importance + "  " + notes[n].deadline;
     div_info.className = "note_info";
     document.getElementsByClassName("note")[n].appendChild(div_info);
-
 
 
     // document.getElementsByClassName('note_content')[n].innerText = notes[n].content;
@@ -144,8 +165,14 @@ function display_notes() {
   
         
     if (notes[n].status == "Finished") {
-      console.log(n + "_ done");
       document.getElementsByClassName("note")[n].style.backgroundColor = "green";
+
+      if (notes[n].deadline > now) {
+        console.log(notes[n].deadline + " > " + now);
+      }
+      else {
+        console.log(now + " < " + notes[n].deadline)
+      }
     }
   
   }
@@ -155,7 +182,6 @@ function display_notes() {
   localStorage.setItem("notes", notes);
   localStorage.notes = JSON.stringify(notes), 1;
   
-  console.table(newdata);
 
 
 
@@ -163,3 +189,14 @@ function display_notes() {
 }
 
 display_notes();
+
+
+
+
+
+
+
+
+
+
+
