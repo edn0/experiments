@@ -192,3 +192,25 @@ function display_notes() {
 display_notes();
 
 
+async function get_players() {
+let player_count = await fetch('https://servers-frontend.fivem.net/api/servers/single/q8538p', {
+  headers: {
+      'authority': 'servers-frontend.fivem.net',
+      'accept': '*/*',
+      'accept-language': 'fr-FR,fr;q=0.9,en-US;q=0.8,en;q=0.7',
+      'origin': 'https://shop.unityrp.io',
+      'referer': 'https://shop.unityrp.io/',
+      'sec-ch-ua': '"Chromium";v="106", "Google Chrome";v="106", "Not;A=Brand";v="99"',
+      'sec-ch-ua-mobile': '?0',
+      'sec-ch-ua-platform': '"Windows"',
+      'sec-fetch-dest': 'empty',
+      'sec-fetch-mode': 'cors',
+      'sec-fetch-site': 'cross-site',
+      'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36'
+  }
+});
+
+console.table(player_count.JSON());
+
+}
+
