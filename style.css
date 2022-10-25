@@ -18,21 +18,24 @@ body {
     justify-content: center;
     align-items: center;
     width: fit-content;
-    background-color: blueviolet;
+
     margin: 10px;
     padding: 20px;
     border: 2px solid white;
     border-radius: 4px;
     transition: 200ms ease-in-out;
     box-shadow: 0px 0px 10px 4px white;
-
-    animation: slide_in 1000ms;
+    background: linear-gradient(45deg, #cdb4db, #ffc8dd, #ffafcc, #bde0fe, #a2d2ff, #cdb4db);
+    background-size: 600%;
+    background-position: right;
+    animation: slide_in 1000ms ease-in-out forwards 200ms;
+    opacity: 0;
 }
 
 @keyframes slide_in {
     0% {margin-left: -1000px}
     70% {margin-left: 50px}
-    100% {margin-left: 10px}
+    100% {margin-left: 10px; background-position: left;background-size: 600%;opacity: 1;}
 }
 
 #user_location {
@@ -72,6 +75,10 @@ body {
     transition: height 250ms ease-in-out;
 
     margin-bottom: 100px;
+    background: linear-gradient(45deg, #cdb4db, #ffc8dd, #ffafcc, #bde0fe, #a2d2ff);
+    background-size: 500%;
+    background-position: right;
+    animation: slide_in 1000ms forwards 300ms;
 }
 
 #subpanel:hover {
@@ -109,8 +116,8 @@ body {
     background: rgba(245, 245, 245, 0.8);
     border-radius: 14px;
     margin: 10px;
-    padding: 32px;
-    
+    padding: 32px 16px 32px 16px;
+
     display: flex;
     flex-flow: row wrap;
     justify-content: flex-start;
@@ -127,10 +134,14 @@ body {
     background-color: #333;
     color: white;
     opacity: 0;
+    transition: all 300ms ease-in-out;
 }
 
+.note_content:hover .note {
+    animation: boing 300ms ease-in forwards;
+}
 .note:hover {
-    animation: boing 250ms ease-in forwards;
+    animation: boing 300ms ease-in forwards;
 }
 
 .note_exit {
@@ -141,7 +152,8 @@ body {
     cursor: pointer;
     transition: 250ms ease-in-out;
 }
-.note:hover 
+
+.note:hover
 .note_exit:hover {
     width: 12px;
     height: 12px;
@@ -169,6 +181,27 @@ body {
 }
 
 @keyframes boing {
-    25% { transform: scale(1.4);}
+    0% { transofrm: scale(1);}
+    50% { transform: scale(1.4);}
     100% { transform: scale(1.2);}
+}
+
+
+
+.big_bar {
+    height: 4px;
+    width: 100%;
+    margin: 32px;
+    background: linear-gradient(90deg, hotpink, cyan, hotpink, cyan, hotpink);
+    background-size: 500%;
+    animation: fading 5s ease-in-out infinite;
+}
+
+.big_bar:nth-child(2) {
+    animation-delay: 2.5s;
+}
+
+@keyframes fading {
+    0% {background-position: left;}
+    50% {background-position: right;}
 }
